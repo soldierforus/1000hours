@@ -1,0 +1,19 @@
+{
+  "name": "1000hours",
+  "version": "1.0.0",
+  "description": "creates a clock counting up to 100 hours and a clock counting down from 1000 hours",
+  "main": "1000.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soldierforus/1000hours.git"
+  },
+  "author": "Travis Bennett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soldierforus/1000hours/issues"
+  },
+  "homepage": "https://github.com/soldierforus/1000hours#readme"
+}
