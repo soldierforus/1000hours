@@ -4,7 +4,7 @@
   "description": "creates a clock counting up to 100 hours and a clock counting down from 1000 hours",
   "main": "1000.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/soldierforus/1000hours/issues"
   },
-  "homepage": "https://github.com/soldierforus/1000hours#readme"
+  "dependencies": {
+    "moment": "^2.14.1",
+    "moment-precise-range-plugin": "^1.2.0",
+    "node-persist": "0.0.11",
+    "yargs": "^4.8.1"
+  }
 }
