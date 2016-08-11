@@ -6,12 +6,12 @@ var moment = require('moment');
 var date = moment().format('YYYY-MM-DD')
 var time = moment().format('HH:mm:ss')
 var currentTotal =  {};
-var currentHours = storage.getItemSync('duration').hours
-var currentMin = storage.getItemSync('duration').minutes
-var currentSec = storage.getItemSync('duration').seconds
-var totalHours = storage.getItemSync('total').totalHours + currentHours
-var totalMin = storage.getItemSync('total').totalMin + currentMin
-var totalSec = storage.getItemSync('total').totalSec + currentSec
+var currentHours = storage.getItem('duration').hours
+var currentMin = storage.getItem('duration').minutes
+var currentSec = storage.getItem('duration').seconds
+var totalHours = storage.getItem('total').totalHours + currentHours
+var totalMin = storage.getItem('total').totalMin + currentMin
+var totalSec = storage.getItem('total').totalSec + currentSec
 var totalTime = {totalHours,totalMin,totalSec}
 
 
@@ -37,12 +37,10 @@ var argv = require('yargs')
       date: {
         demand: false,
         description: "Date of Timer",
-        type: 'number'
       },
       time: {
         demand: false,
         description: "Date of Timer",
-        type: 'number'
     }
   }).help('help');
 })
@@ -50,8 +48,19 @@ var argv = require('yargs')
   yargs.options({
     date: {
       demand: false,
-      description: "Date of Timer",
-      type: 'number'
+      description: "Resets the Timer",
+    },
+    time: {
+      demand: false,
+      description: "Resets the Timer",
+    }
+  }).help('help');
+})
+.command('showtime', 'shows time totals', function (yargs) {
+  yargs.options({
+    date: {
+      demand: false,
+      description: "Shows Time totals",
     },
     time: {
       demand: false,
@@ -75,6 +84,7 @@ function getTotal (){
     currentTotal = storage.getItemSync('duration')
     }
   }
+
 //Add time totals
 function aggregate() {
   if (storage.getItemSync('total') === undefined) {
@@ -98,18 +108,23 @@ function startTimer() {
   console.log("Total amount of time logged:  \n", "Hours:   ", currentHours, "\n " +"Minutes: ",currentMin, "\n Seconds: ", currentSec, "\n");
 }
 
+//Show Time
+  function showTime() {
+    console.log("\nTotal time logged:", "\nHours:   ", totalTime.totalHours, "\nMinutes: ", totalTime.totalMin, "\nSeconds: ", totalTime.totalSec, "\n");
+  }
+
 //Stop Timer
 function stopTimer() {
   var stop = {
     stopDate: date,
     stopTime: time
   };
-  storage.setItemSync('stop',stop);
+  storage.setItem('stop',stop);
 
-  var started = storage.getItemSync('start').startTime
-  var stopped = storage.getItemSync('stop').stopTime
-  var sp = storage.getItemSync('start').startDate + " " + started + 'YYYY-MM-DD HH:mm:ss';
-  var ep = storage.getItemSync('stop').stopDate + " " + stopped + 'YYYY-MM-DD HH:mm:ss'
+  var started = storage.getItem('start').startTime
+  var stopped = storage.getItem('stop').stopTime
+  var sp = storage.getItem('start').startDate + " " + started + 'YYYY-MM-DD HH:mm:ss';
+  var ep = storage.getItem('stop').stopDate + " " + stopped + 'YYYY-MM-DD HH:mm:ss'
 
   console.log("\nClock started at:  ",started);
   console.log("Clock stopped at:  ",stopped);
@@ -117,11 +132,10 @@ function stopTimer() {
   var diff2 = moment.preciseDiff(sp, ep, true)
 
   //Store Duration of Current Session
-  storage.setItem('duration',diff2);
+  storage.setItemSync('duration',diff2);
   console.log("Duration this session: ", diff, "\n");
   aggregate();
-  console.log("Total time logged:", "\nHours:   ", totalTime.totalHours, "\nMinutes: ", totalTime.totalMin, "\nSeconds: ", totalTime.totalSec, "\n");
-
+  showTime();
 }
 
 //Reset Timer
@@ -132,9 +146,10 @@ function resetTimer() {
 
   var duration = {"years":0,"months":0,"days":0,"hours":0,"minutes":0,"seconds":0,"firstDateWasLater":false}
 
-  storage.setItemSync('total',totalTime);
-  storage.setItemSync('duration',duration);
+  storage.setItem('total',totalTime);
+  storage.setItem('duration',duration);
   };
+
 
 
 if (command === "start") {
@@ -147,4 +162,8 @@ if (command === "stop") {
 
 if (command === "reset") {
   resetTimer();
+}
+
+if (command === "showtime") {
+  showTime();
 }
