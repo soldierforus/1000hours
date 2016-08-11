@@ -80,7 +80,7 @@ function aggregate() {
   if (storage.getItemSync('total') === undefined) {
     console.log("No previous history")
   } else {
-    total = storage.getItemSync('total')
+    total = storage.getItem('total')
     storage.setItemSync('total',totalTime)
   }
   return totalTime;
