@@ -12,3 +12,5 @@ You can use the terminal commands: 'start', 'stop', 'reset', and 'showtime'
 
 Check out this freakonomics podcast for more inspiration and to learn ,"How to Become Great at Just About Anything"
 http://freakonomics.com/podcast/peak/
+
+This is just a Minimum Viable Product so feel free to contribute.  There is a lot more features I would like to add (eg setting goals, having alarms when goals are met, countdown/distance from goals, etc)
