@@ -14,8 +14,18 @@ var totalMin = storage.getItem('total').totalMin + currentMin
 var totalSec = storage.getItem('total').totalSec + currentSec
 var totalTime = {totalHours,totalMin,totalSec}
 
+//Convert Times
+function convertTime () {
 
+  var minToHr = Math.floor(totalMin/60);
+  var remMin = totalMin % 60;
+  var secToMin = Math.floor(totalSec/60);
+  var remSec = totalSec % 60;
 
+  totalTime.totalHours += minToHr;
+  totalTime.totalMin = remMin + secToMin;
+  totalTime.totalSec = remSec
+}
 //Command Line Interface
 var argv = require('yargs')
   .command('start', 'starts timer', function (yargs) {
@@ -74,8 +84,6 @@ var argv = require('yargs')
 
 var command = argv._[0]
 
-
-
 // //Get current time total
 function getTotal (){
   if (storage.getItemSync('duration') === undefined) {
@@ -93,7 +101,6 @@ function aggregate() {
     total = storage.getItem('total')
     storage.setItemSync('total',totalTime)
   }
-  return totalTime;
 }
 
 //Start timer
@@ -105,11 +112,12 @@ function startTimer() {
   console.log ("\nClock started at:  ", time);
   storage.setItemSync('start',start);
   getTotal();
-  console.log("Total amount of time logged:  \n", "Hours:   ", currentHours, "\n " +"Minutes: ",currentMin, "\n Seconds: ", currentSec, "\n");
+  showTime();
 }
 
 //Show Time
   function showTime() {
+    convertTime();
     console.log("\nTotal time logged:", "\nHours:   ", totalTime.totalHours, "\nMinutes: ", totalTime.totalMin, "\nSeconds: ", totalTime.totalSec, "\n");
   }
 
@@ -135,7 +143,6 @@ function stopTimer() {
   storage.setItemSync('duration',diff2);
   console.log("Duration this session: ", diff, "\n");
   aggregate();
-  showTime();
 }
 
 //Reset Timer
@@ -149,8 +156,6 @@ function resetTimer() {
   storage.setItem('total',totalTime);
   storage.setItem('duration',duration);
   };
-
-
 
 if (command === "start") {
   startTimer();
