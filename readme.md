@@ -13,7 +13,7 @@ You can use the terminal commands: 'start', 'stop', 'reset', and 'showtime'
 Check out this freakonomics podcast for more inspiration and to learn ,"How to Become Great at Just About Anything"
 http://freakonomics.com/podcast/peak/
 
-This is just a Minimum Viable Product so feel free to contribute.  There is a lot more features I would like to add:
+This is just a Minimum Viable Product so feel free to contribute.  There are a lot more features I would like to add:
 
  Setting goals<br>
  Alarms when goals are met<br>
@@ -23,4 +23,8 @@ This is just a Minimum Viable Product so feel free to contribute.  There is a lo
 
  Unfortunately have to stop with an MVP. I have to keep coding other projects to learn new things and to achieve my goal of <b>#1000HoursOfCoding</b>
 
- Good luck in achieving whatever goal you have, I hope this Time logger helps you to achieve it.
+ Good luck in achieving whatever goal you have, I hope this Time logger helps you to achieve it!
+
+
+Find me on twitter @TravisDBennett
+and check out my website www.TDBennett.com
