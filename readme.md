@@ -21,6 +21,6 @@ This is just a Minimum Viable Product so feel free to contribute.  There is a lo
  Show Time logged by Day/Week/Month/Year<br>
  etc<br>
 
- Unfortunately have to stop with an MVP. I have to keep coding other projects to learn new things and to <b>achieve my goal of #1000HoursOfCoding</b>
+ Unfortunately have to stop with an MVP. I have to keep coding other projects to learn new things and to achieve my goal of <b>#1000HoursOfCoding</b>
 
  Good luck in achieving whatever goal you have, I hope this Time logger helps you to achieve it.
