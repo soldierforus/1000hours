@@ -4,10 +4,10 @@ In the book <i>Outliers</i>, author Malcolm Gladwell says that it takes roughly 
 
 You can use the terminal commands: 'start', 'stop', 'reset', and 'showtime'
 
-"node 1000.js start" will begin the timer
-"node 1000.js stop" will stop the timer
-"node 1000.js reset" will reset the save logs
-"node 1000.js showtime" will show your current progress in HH:mm:ss
+"node 1000.js start" will begin the timer<br>
+"node 1000.js stop" will stop the timer<br>
+"node 1000.js reset" will reset the save logs<br>
+"node 1000.js showtime" will show your current progress in HH:mm:ss<br>
 
 
 Check out this freakonomics podcast for more inspiration and to learn ,"How to Become Great at Just About Anything"
@@ -15,11 +15,11 @@ http://freakonomics.com/podcast/peak/
 
 This is just a Minimum Viable Product so feel free to contribute.  There is a lot more features I would like to add:
 
- Setting goals
- Alarms when goals are met
- Countdown/distance from goals
- Show Time logged by Day/Week/Month/Year
- etc
+ Setting goals<br>
+ Alarms when goals are met<br>
+ Countdown/distance from goals<br>
+ Show Time logged by Day/Week/Month/Year<br>
+ etc<br>
 
  Unfortunately have to stop with an MVP. I have to keep coding other projects to learn new things and to <b>achieve my goal of #1000HoursOfCoding</b>
 
