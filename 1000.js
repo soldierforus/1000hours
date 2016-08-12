@@ -26,6 +26,7 @@ function convertTime () {
   totalTime.totalMin = remMin + secToMin;
   totalTime.totalSec = remSec
 }
+
 //Command Line Interface
 var argv = require('yargs')
   .command('start', 'starts timer', function (yargs) {

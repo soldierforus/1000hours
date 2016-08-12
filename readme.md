@@ -13,4 +13,14 @@ You can use the terminal commands: 'start', 'stop', 'reset', and 'showtime'
 Check out this freakonomics podcast for more inspiration and to learn ,"How to Become Great at Just About Anything"
 http://freakonomics.com/podcast/peak/
 
-This is just a Minimum Viable Product so feel free to contribute.  There is a lot more features I would like to add (eg setting goals, having alarms when goals are met, countdown/distance from goals, etc)
+This is just a Minimum Viable Product so feel free to contribute.  There is a lot more features I would like to add:
+
+ Setting goals
+ Alarms when goals are met
+ Countdown/distance from goals
+ Show Time logged by Day/Week/Month/Year
+ etc
+
+ Unfortunately have to stop with an MVP. I have to keep coding other projects to learn new things and to <b>achieve my goal of #1000HoursOfCoding</b>
+
+ Good luck in achieving whatever goal you have, I hope this Time logger helps you to achieve it.
