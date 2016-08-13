@@ -4,7 +4,11 @@
   "description": "creates a clock counting up to 100 hours and a clock counting down from 1000 hours",
   "main": "1000.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 1000.js start",
+    "stop": "node 1000.js stop",
+    "showtime": "node 1000.js showtime",
+    "reset": "node 1000.js reset"
   },
   "repository": {
     "type": "git",

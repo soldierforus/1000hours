@@ -28,3 +28,4 @@ This is just a Minimum Viable Product so feel free to contribute.  There are a l
 
 Find me on twitter @TravisDBennett
 and check out my website www.TDBennett.com
+email bugs to travis.david.bennett@gmail.com
