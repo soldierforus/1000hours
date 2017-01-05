@@ -22,9 +22,11 @@ function convertTime () {
   var remMin = (secToMin + totalMin) % 60;
   var remSec = totalSec % 60;
 
-  totalTime.totalSec = remSec;
+
+  totalTime.totalSec = remSec
   totalTime.totalHours += minToHr;
   totalTime.totalMin = remMin;
+
 }
 
 //Command Line Interface
@@ -55,35 +57,58 @@ var argv = require('yargs')
     }
   }).help('help');
 })
-.command('reset', 'resets timer', function (yargs) {
-  yargs.options({
-    date: {
-      demand: false,
-      description: "Resets the Timer",
-    },
-    time: {
-      demand: false,
-      description: "Resets the Timer",
-    }
-  }).help('help');
-})
-.command('showtime', 'shows time totals', function (yargs) {
-  yargs.options({
-    date: {
-      demand: false,
-      description: "Shows Time totals",
-    },
-    time: {
-      demand: false,
-      description: "Date of Timer",
-      type: 'number'
-    }
-  }).help('help');
+  .command('reset', 'resets timer', function (yargs) {
+    yargs.options({
+      date: {
+        demand: false,
+        description: "Resets the Timer",
+      },
+      time: {
+        demand: false,
+        description: "Resets the Timer",
+      }
+    }).help('help');
+  })
+  .command('showtime', 'shows time totals', function (yargs) {
+    yargs.options({
+      date: {
+        demand: false,
+        description: "Shows Time totals",
+      },
+      time: {
+        demand: false,
+        description: "Date of Timer",
+        type: 'number'
+      }
+    }).help('help');
 })
 .help('help')
 .argv;
 
 var command = argv._[0]
+
+//On-Off
+function getIo() {
+  var IO = storage.getItemSync('IO').io
+
+  }
+
+function changeIo (){
+  getIo();
+    if (IO === 'O') {
+      IO = {
+        io: 'I'
+      };
+    storage.setItemSync('IO',io);
+  } else {
+    IO = {
+      io: 'O'
+    };
+    storage.setItemSync('IO',io)
+    }
+  }
+
+
 
 // //Get current time total
 function getTotal (){
@@ -106,6 +131,10 @@ function aggregate() {
 
 //Start timer
 function startTimer() {
+  IO = getIo();
+  if (IO === "O") {
+    console.log ("\nClock was already started at:  ", time);
+  } else {
   var start = {
     startDate: date,
     startTime: time
@@ -114,6 +143,8 @@ function startTimer() {
   storage.setItemSync('start',start);
   getTotal();
   showTime();
+  changeIo();
+  }
 }
 
 //Show Time
@@ -124,6 +155,10 @@ function startTimer() {
 
 //Stop Timer
 function stopTimer() {
+  IO = getIo();
+  if (IO === "I") {
+    console.log ("\nClock was stopped started at:  ", time);
+  } else {
   var stop = {
     stopDate: date,
     stopTime: time
@@ -144,6 +179,8 @@ function stopTimer() {
   storage.setItemSync('duration',diff2);
   console.log("Duration this session: ", diff, "\n");
   aggregate();
+  changeIo();
+  }
 }
 
 //Reset Timer
